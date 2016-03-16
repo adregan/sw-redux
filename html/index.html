@@ -2,10 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Service Worker Redux</title>
+    <style>
+      * {box-sizing: border-box;}
+      .button-container {
+        background: #E8E8E8;
+        padding: 3rem;
+        text-align: center;
+      }
+      .button {
+        border: none;
+        color: white;
+        display: inline-block;
+        margin-right: 1.5rem;
+        padding: 1rem 2rem;
+      }
+      .button:last-child {margin-right: 0;}
+      .button--add {
+        background: green;
+      }
+      .button--sub {
+        background: red;
+      }
+    </style>
 </head>
 <body>
-    <div id="log"></div>
+    <div id="controls" class="button-container">
+      <button id="add" class="button button--add">Add</button>
+      <button id="sub" class="button button--sub">Subtract</button>
+    </div>
     <script src="static/index.js"></script>
 </body>
 </html>
