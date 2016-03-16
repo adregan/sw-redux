@@ -7,8 +7,10 @@
       * {box-sizing: border-box;}
       .button-container {
         background: #E8E8E8;
+        margin: 0 auto;
         padding: 3rem;
         text-align: center;
+        width: 50%;
       }
       .button {
         border: none;
@@ -24,6 +26,9 @@
       .button--sub {
         background: red;
       }
+      .display {
+        text-align: center;
+      }
     </style>
 </head>
 <body>
@@ -31,6 +36,7 @@
       <button id="add" class="button button--add">Add</button>
       <button id="sub" class="button button--sub">Subtract</button>
     </div>
+    <h2 id="display" class="display"></h2>
     <script src="static/index.js"></script>
 </body>
 </html>
