@@ -46,6 +46,5 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('message', (e) => {
   store.dispatch(e.data);
   e.ports[0].postMessage(store.getState());
-  console.log('message received');
 });
 
