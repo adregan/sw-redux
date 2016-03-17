@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1138px" height="743px" viewBox="0 0 1138 743" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>SW redux</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(2.000000, 388.000000)">
+            <rect id="Rectangle-1" stroke="#333333" stroke-width="3" fill="#F7F7F7" x="0" y="0" width="243" height="153" rx="8"></rect>
+            <text id="UI-Document" font-family="NewCenturySchlbkLTStd-It, New Century Schoolbook LT Std" font-size="18" font-style="italic" font-weight="normal" fill="#333333">
+                <tspan x="66" y="81">UI Document</tspan>
+            </text>
+        </g>
+        <g id="Group-2" transform="translate(780.000000, 608.000000)">
+            <rect id="Rectangle-1" stroke="#333333" stroke-width="3" fill="#F7F7F7" x="0" y="0" width="181" height="133" rx="8"></rect>
+            <text id="IndexDB" font-family="NewCenturySchlbkLTStd-It, New Century Schoolbook LT Std" font-size="18" font-style="italic" font-weight="normal" fill="#333333">
+                <tspan x="54" y="71">IndexDB</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(454.000000, 357.000000)">
+            <path d="M94.9573805,212.920913 L106,182.091061 L117.113691,213.119336 C122.303824,212.632741 127.386208,211.775435 132.334092,210.574169 L132.164541,177.477547 L153.390788,203.038802 C158.026276,200.805084 162.476058,198.247026 166.710695,195.394067 L155.173252,164.193461 L183.909727,180.981341 C187.466794,177.304567 190.76259,173.373469 193.767193,169.217971 L172.250943,143.841061 L204.927738,149.775623 C206.987213,145.112257 208.723355,140.274095 210.107747,135.289552 L181.337793,118.875147 L213.791605,113.323937 C213.929849,111.097401 214,108.852423 214,106.591061 C214,103.642467 213.880733,100.72173 213.646759,97.8334096 L181.337793,92.3069756 L209.614764,76.173837 C208.124086,71.137182 206.272687,66.2554456 204.090494,61.5585546 L172.250943,67.3410612 L192.98121,42.8911637 C189.836011,38.6528013 186.38486,34.6550693 182.660418,30.9306282 L155.173252,46.9886613 L166.117783,17.3914605 C161.697968,14.4563157 157.047454,11.8408971 152.199246,9.57821037 L132.164541,33.7045757 L132.323859,2.605469 C127.1589,1.35204296 121.847413,0.473412262 116.41982,-3.61377595e-14 L106,29.0910612 L95.6468861,0.186237889 C90.1914904,0.761585315 84.8583124,1.74688441 79.6787294,3.11075778 L79.835459,33.7045757 L60.3671855,10.2603231 C55.4505266,12.6448346 50.7439474,15.394671 46.2827259,18.4745542 L56.8267479,46.9886613 L30.6065459,31.6707906 C26.7959923,35.5558004 23.2794508,39.7302257 20.0929396,44.1580481 L39.7490566,67.3410612 L9.75453164,61.8936369 C7.49949307,66.7916951 5.60362274,71.8892529 4.10067055,77.1525605 L30.6622069,92.3069756 L0.381915747,97.4864058 C0.129015764,100.487737 0,103.524332 0,106.591061 C0,108.969566 0.0776068761,111.329945 0.230426573,113.669804 L30.6622069,118.875147 L3.62310313,134.302033 C5.01704686,139.515352 6.79485953,144.571803 8.92440295,149.439248 L39.7490566,143.841061 L19.3199536,167.935757 C22.3668334,172.2826 25.7287391,176.39248 29.3725241,180.232249 L56.8267479,164.193461 L45.6944218,194.298514 C49.9735924,197.295119 54.4821599,199.986533 59.1885329,202.341166 L79.835459,177.477547 L79.6684973,210.06867 C84.6328748,211.376405 89.7383791,212.336362 94.9573805,212.920913 Z" id="Combined-Shape" stroke="#333333" stroke-width="3" fill="#F7F7F7"></path>
+            <text id="Service-Worker" font-family="NewCenturySchlbkLTStd-It, New Century Schoolbook LT Std" font-size="18" font-style="italic" font-weight="normal" fill="#333333">
+                <tspan x="46.007" y="111">Service Worker</tspan>
+                <tspan x="72.881" y="129">+ Redux</tspan>
+            </text>
+        </g>
+        <path d="M268.5,425 L441,425" id="Line" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+        <path id="Line-decoration-1" d="M441,425 L430.2,422 L430.2,428 L441,425 Z" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+        <g id="Group-3" transform="translate(268.000000, 480.000000)">
+            <path d="M173,1 L4,1" id="Line" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M4,1 L14.8,4 L14.8,-2 L4,1 Z" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+            <text id="Full-State-Object" font-family="NittiBasic-Light, Nitti Basic" font-size="18" font-weight="300" fill="#333333">
+                <tspan x="0" y="28">Full State Object</tspan>
+            </text>
+        </g>
+        <text id="Actions" font-family="NittiBasic-Light, Nitti Basic" font-size="18" font-weight="300" fill="#333333">
+            <tspan x="317" y="446">Actions</tspan>
+        </text>
+        <path d="M560,247 L560,338.5" id="Line" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+        <path id="Line-decoration-1" d="M560,338.5 L563,327.7 L557,327.7 L560,338.5 Z" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+        <path d="M924.001931,92.0000001 L665,92" id="Line" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+        <path id="Line-decoration-1" d="M665,92 L675.8,95 L675.8,89 L665,92 Z" stroke="#333333" stroke-width="4" stroke-linecap="square"></path>
+        <g id="Group-7" transform="translate(801.895472, 307.505478) rotate(-6.000000) translate(-801.895472, -307.505478) translate(661.895472, 228.005478)" stroke="#333333" stroke-width="4" stroke-linecap="square">
+            <path d="M26.0809411,111.029021 L271.970664,25.8538417" id="Line" transform="translate(149.373904, 69.193708) rotate(-12.000000) translate(-149.373904, -69.193708) "></path>
+            <path id="Line-decoration-1" d="M271.970664,25.8538417 L260.783633,26.5540951 L262.747522,32.2235873 L271.970664,25.8538417 Z"></path>
+            <path d="M223.252628,22.4385355 L-1.5063506e-12,158.193861" id="Line"></path>
+            <path id="Line-decoration-1" d="M-1.5063506e-12,158.193861 L10.7865572,155.145881 L7.66918101,150.019287 L-1.5063506e-12,158.193861 Z"></path>
+        </g>
+        <g id="Group-4" transform="translate(949.000000, 2.000000)" stroke="#333333" stroke-width="3">
+            <rect id="Rectangle-3" fill="#F7F7F7" x="0" y="18" width="127" height="173"></rect>
+            <ellipse id="Oval-2" fill="#D8D8D8" cx="64" cy="16" rx="62" ry="16"></ellipse>
+        </g>
+        <text id="API" font-family="NewCenturySchlbkLTStd-It, New Century Schoolbook LT Std" font-size="18" font-style="italic" font-weight="normal" fill="#333333">
+            <tspan x="996" y="117">API</tspan>
+        </text>
+        <text id="Send-changes-to-API," font-family="NittiBasic-Light, Nitti Basic" font-size="18" font-weight="300" fill="#333333">
+            <tspan x="924" y="218">Send changes to </tspan>
+            <tspan x="924" y="236">API, and if the </tspan>
+            <tspan x="924" y="254">cached requests are </tspan>
+            <tspan x="924" y="272">stale, fetch more </tspan>
+            <tspan x="924" y="290">data.</tspan>
+        </text>
+        <text id="Can-update-data" font-family="NittiBasic-Light, Nitti Basic" font-size="18" font-weight="300" fill="#333333">
+            <tspan x="480.5" y="178">Can update data</tspan>
+            <tspan x="442.7" y="196">via push notifications</tspan>
+            <tspan x="442.7" y="214">when application isn’t </tspan>
+            <tspan x="523.7" y="232">active.</tspan>
+        </text>
+        <text id="Updates-trigger-push" font-family="NittiBasic-Light, Nitti Basic" font-size="18" font-weight="300" fill="#333333">
+            <tspan x="683" y="74">Updates trigger push?</tspan>
+        </text>
+        <g id="Group-5" transform="translate(726.993368, 570.599374) rotate(59.000000) translate(-726.993368, -570.599374) translate(660.993368, 535.599374)" stroke="#333333" stroke-width="4" stroke-linecap="square">
+            <path d="M4,54.4295431 L127.649902,12.674279" id="Line" transform="translate(66.000000, 33.920698) rotate(-12.000000) translate(-66.000000, -33.920698) "></path>
+            <path id="Line-decoration-1" d="M127.649902,12.674279 L116.457754,13.2873147 L118.377392,18.971942 L127.649902,12.674279 Z"></path>
+            <path d="M117.151195,3 L4.8847474,69.5510717" id="Line"></path>
+            <path id="Line-decoration-1" d="M4.8847474,69.5510717 L15.7048633,66.6244538 L12.645273,61.4631645 L4.8847474,69.5510717 Z"></path>
+        </g>
+        <g id="Group-6" transform="translate(495.000000, 2.000000)">
+            <g id="Group-4" transform="translate(0.500000, 0.000000)" stroke="#333333" stroke-width="3">
+                <rect id="Rectangle-3" fill="#F7F7F7" x="0" y="14.4188482" width="127" height="138.581152"></rect>
+                <ellipse id="Oval-2" fill="#D8D8D8" cx="64" cy="12.8167539" rx="62" ry="12.8167539"></ellipse>
+            </g>
+            <text id="Push-Notifications" font-family="NewCenturySchlbkLTStd-It, New Century Schoolbook LT Std" font-size="18" font-style="italic" font-weight="normal" fill="#333333">
+                <tspan x="43.503" y="74">Push </tspan>
+                <tspan x="11.679" y="92">Notifications</tspan>
+            </text>
+        </g>
+        <text id="Persist-State" font-family="NittiBasic-Light, Nitti Basic" font-size="18" font-weight="300" fill="#333333">
+            <tspan x="744" y="545">Persist </tspan>
+            <tspan x="744" y="563">State</tspan>
+        </text>
+    </g>
+</svg>
