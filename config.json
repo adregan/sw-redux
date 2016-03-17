@@ -1,0 +1,12 @@
+{
+    "cache": {
+        "name": "sw-redux",
+        "version": 11,
+        "items": [
+            "/",
+            "/index.html",
+            "/static/",
+            "/static/index.js"
+        ]
+    }
+}
