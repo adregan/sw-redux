@@ -10,7 +10,7 @@
     "sw": "browserify -t babelify js/service.js > dist/service.js",
     "js": "browserify -t babelify js/index.js > dist/static/index.js",
     "html": "cp html/index.html dist/index.html",
-    "prebuild": "npm run lint; npm test; npm run directories",
+    "prebuild": "npm run lint; npm test; npm run directories; scripts/version.js",
     "build": "npm run js; npm run sw; npm run html",
     "serve": "cd dist; http-server -p 7777",
     "start": "npm run build; npm run serve"
