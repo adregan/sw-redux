@@ -14,20 +14,13 @@ const activate = (store) => {
   store.dispatch({type: 'ACTIVATE'});
   return (event) => {
     event.waitUntil(
-      localforage.getItem('state')
-        .then(state => createStore(reducers, state))
-        .then(store => {
-          self.store = store;
-          self.clients.claim()
-            .then(() => self.clients.matchAll())
-            .then(clients => {
-              return Promise.all(
-                clients.map(client => client.postMessage(store.getState()))
-              );
-            });
+      self.clients.claim()
+        .then(() => self.clients.matchAll())
+        .then(clients => {
+          return Promise.all(clients.map(c => c.postMessage(store.getState())));
         })
         .catch(err => console.error(err))
-    );
+    );  
   };
 };
 
