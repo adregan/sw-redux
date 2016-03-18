@@ -1,7 +1,7 @@
 {
     "cache": {
         "name": "sw-redux",
-        "version": 1,
+        "version": 0,
         "items": [
             "/",
             "/index.html",
