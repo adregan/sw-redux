@@ -1,40 +1,22 @@
-import { createStore } from 'redux';
-import count from './reducers.js';
 import install from './service/install';
+import activate from './service/activate';
 import { cache } from '../config';
 
-let store;
-
 self.addEventListener('install', install(cache));
+self.addEventListener('activate', activate()); 
 
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request)
-      .then(r => {
-        // Cache hit - return response
-        if (r) {return r;}
-        return fetch(e.request);
-      }
-    )
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(request => {
+        return (request) ? request : fetch(event.request);
+      })
   );
 });
 
-self.addEventListener('activate', (event) => {
-  store = createStore(count);
-  console.log(store.getState());
-  event.waitUntil(
-    self.clients.claim()
-      .then(() => self.clients.matchAll())
-      .then(clients => {
-        return Promise.all(
-          clients.map(client => client.postMessage(store.getState()))
-        );
-      })
-  ); 
-});
 
-self.addEventListener('message', (e) => {
-  store.dispatch(e.data);
-  e.ports[0].postMessage(store.getState());
+self.addEventListener('message', (event) => {
+  self.store.dispatch(event.data);
+  event.ports[0].postMessage(self.store.getState());
 });
 
