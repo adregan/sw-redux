@@ -9,6 +9,9 @@
  * Note: `self` refers to the service worker's global scope (like `window`).
  *
  */
+const activate = (store) => {
+  if (!store) throw TypeError('Missing required parameter: store');
+  store.dispatch({type: 'ACTIVATE'});
   return (event) => {
     event.waitUntil(
       localforage.getItem('state')
