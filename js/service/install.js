@@ -1,3 +1,5 @@
+import localforage from 'localforage';
+
 /**
  * install : Object -> Function 
  * @description
@@ -18,10 +20,10 @@ const install = (opts = {}) => {
 
   const cacheName = `${name}-v${version}`;
 
-  console.log(cacheName);
-
   return (event) => {
     console.log(`Installing SW: ${cacheName}`);
+    // config is a synchronous event
+    localforage.config({name, version, driver: localforage.INDEXEDDB});
     event.waitUntil(
       caches.open(cacheName).then(cache => cache.addAll(items))
     );
