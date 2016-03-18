@@ -14,22 +14,21 @@ const install = ({name, version = 1, items = ['/']}) => {
   if (!name) throw TypeError('Missing required parameter: name');
   const cacheName = `${name}-v${version}`;
 
-  return (event) => {
-    console.log(
-      'Installing service worker and database. ' +
-      `Name: ${name}, Version: ${version}`
-    );
+  console.log('Installing service worker and database. ' +
+    `Name: ${name}, Version: ${version}`);
 
-    localforage.config({name, version, driver: localforage.INDEXEDDB});
+  localforage.config({name, version, driver: localforage.INDEXEDDB});
+
+  return (event) => {
     event.waitUntil(
       new Promise((resolve, reject) => {
         localforage.getItem('state')
-          .then(s => (!s) ? localforage.setItem('state', {}) : true)
+          .then(s => {return (!s) ? localforage.setItem('state', {}) : true;})
           .then(() => caches.open(cacheName))
           .then(cache => cache.addAll(items))
           .then(() => resolve(true))
-          .catch(err => reject(err));
-      }).catch(err => console.error(err))
+          .catch(err => {console.error(err); reject(err);});
+      })
     );
   };
 };
