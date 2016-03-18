@@ -21,7 +21,7 @@ self.addEventListener('fetch', function(event) {
 
 
 self.addEventListener('message', (event) => {
-  self.store.dispatch(event.data);
-  event.ports[0].postMessage(self.store.getState());
+  store.dispatch(event.data);
+  event.ports[0].postMessage(store.getState());
 });
 
