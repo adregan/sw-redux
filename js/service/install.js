@@ -1,4 +1,5 @@
 /**
+ * install : Object -> Function 
  * @description
  * Constructs the install function for the SW
  * 
@@ -7,7 +8,6 @@
  * @param {number} opts.version   The version number of the cache
  * @param {array}  opts.items     The urls to cache
  */
-
 const install = (opts = {}) => {
   let { name, version, items } = opts;
   if (!name) {
