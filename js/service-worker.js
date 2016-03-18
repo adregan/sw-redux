@@ -7,7 +7,7 @@ import { cache } from '../config';
 const store = applyMiddleware()(createStore)(reducers);
 
 self.addEventListener('install', install(cache));
-self.addEventListener('activate', activate()); 
+self.addEventListener('activate', activate(store)); 
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
