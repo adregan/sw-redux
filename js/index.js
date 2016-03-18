@@ -13,8 +13,8 @@ const sendMessage = (msg) => {
   navigator.serviceWorker.controller.postMessage(msg, [messageChannel.port2]);
 };
 
-controls.addEventListener('click', (e) => {
-  e.stopPropagation();
+controls.addEventListener('click', (event) => {
+  event.stopPropagation();
 
   if (!navigator.serviceWorker.controller) {
     return alert('So sorry something has gone wrong. Please refresh.');
