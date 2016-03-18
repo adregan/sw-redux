@@ -10,7 +10,7 @@ import localforage from 'localforage';
  * @param {number} opts.version   The version number of the cache
  * @param {array}  opts.items     The urls to cache
  */
-const install = ({name, version = 0, items = ['/']}) => {
+const install = ({name, version = 1, items = ['/']}) => {
   if (!name) throw TypeError('Missing required parameter: name');
   const cacheName = `${name}-v${version}`;
 
