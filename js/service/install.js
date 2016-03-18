@@ -23,7 +23,7 @@ const install = ({name, version = 1, items = ['/']}) => {
     event.waitUntil(
       new Promise((resolve, reject) => {
         localforage.getItem('state')
-          .then(s => {return (!s) ? localforage.setItem('state', {}) : true;})
+          .then(s => {return (!s) ? localforage.setItem('state', 0) : true;})
           .then(() => caches.open(cacheName))
           .then(cache => cache.addAll(items))
           .then(() => resolve(true))
