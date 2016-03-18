@@ -1,21 +1,11 @@
 import { createStore } from 'redux';
 import count from './reducers.js';
-
-const VERSION = 11;
-const CACHE_NAME = `sw-redux-v${VERSION}`;
-
-const toCache = [
-  '/',
-  '/static/index.js'
-];
+import install from './service/install';
+import { cache } from '../config';
 
 let store;
 
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(toCache))
-  );
-});
+self.addEventListener('install', install(cache));
 
 self.addEventListener('fetch', function(e) {
   e.respondWith(
@@ -30,8 +20,8 @@ self.addEventListener('fetch', function(e) {
 });
 
 self.addEventListener('activate', (event) => {
-  console.log(`Activated: ${CACHE_NAME}`);
   store = createStore(count);
+  console.log(store.getState());
   event.waitUntil(
     self.clients.claim()
       .then(() => self.clients.matchAll())

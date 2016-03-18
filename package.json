@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel-register --recursive",
     "directories": "mkdir -p dist/static",
     "lint": "eslint js; eslint test",
-    "sw": "browserify -t babelify js/service.js > dist/service.js",
+    "sw": "browserify -t babelify js/service-worker.js > dist/service.js",
     "js": "browserify -t babelify js/index.js > dist/static/index.js",
     "html": "cp html/index.html dist/index.html",
     "prebuild": "npm run lint; npm test; npm run directories; scripts/version.js",
