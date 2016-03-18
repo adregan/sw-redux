@@ -2,9 +2,10 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers.js';
 import install from './service/install';
 import activate from './service/activate';
+import { reset, stash } from './service/middleware';
 import { cache } from '../config';
 
-const store = applyMiddleware()(createStore)(reducers);
+const store = applyMiddleware(reset, stash)(createStore)(reducers);
 
 self.addEventListener('install', install(cache));
 self.addEventListener('activate', activate(store)); 
