@@ -8,8 +8,10 @@ export const reset = store => next => action => {
   if (action.type !== 'ACTIVATE') return next(action);
   console.log('Reseting data');
   localforage.getItem('state')
-    .then(state => store.dispatch({type: 'RESET', state}))
-    .catch(err => {console.log(err); return next(action);});
+    .then(state => {
+      if (state) return store.dispatch({type: 'RESET', state});
+    })
+    .catch(err => console.log(err) && next(action));
 };
 
 /*
