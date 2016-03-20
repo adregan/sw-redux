@@ -1,18 +1,17 @@
 import localforage from 'localforage';
-
+import { getCacheName } from './utils';
 /**
- * install : Object -> Function 
+ * install : Object -> Function
  * @description
  * Constructs the install function for the SW
- * 
- * @param {object} opts 
+ *
+ * @param {object} opts
  * @param {string} opts.name      REQUIRED: The name of the app
  * @param {number} opts.version   The version number of the cache
  * @param {array}  opts.items     The urls to cache
  */
-const install = ({name, version = 1, items = ['/']}) => {
-  if (!name) throw TypeError('Missing required parameter: name');
-  const cacheName = `${name}-v${version}`;
+const install = ({name, version, items = ['/']}) => {
+  const cacheName = getCacheName(name, version);
 
   console.log('Installing service worker and configuring database. ' +
     `Name: ${name}, Version: ${version}`);
