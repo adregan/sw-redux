@@ -9,7 +9,7 @@ const receiveMessage = (event) => {
 
 const sendMessage = (msg) => {
   let messageChannel = new MessageChannel();
-  messageChannel.port1.onmessage = receiveMessage; 
+  messageChannel.port1.onmessage = receiveMessage;
   navigator.serviceWorker.controller.postMessage(msg, [messageChannel.port2]);
 };
 
