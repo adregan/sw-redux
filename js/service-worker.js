@@ -3,7 +3,7 @@ import reducers from './reducers.js';
 import install from './service/install';
 import activate from './service/activate';
 import { reset, stash } from './service/middleware';
-import { cache } from '../config';
+import { cache as cacheConfig } from '../config';
 
 const store = applyMiddleware(reset, stash)(createStore)(reducers);
 
