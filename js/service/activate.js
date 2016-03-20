@@ -5,7 +5,10 @@ import { getCacheName } from './utils';
  * @description
  * Will reactivate the store with stored data and send it to the clients.
  *
- * @param {object} store    REQUIRED: A redux store
+ * @param {object} opts
+ * @param {object} opts.store        REQUIRED: A redux store
+ * @param {string} opts.name         The cache name
+ * @param {string} opts.version      The cache version
  *
  * Note: `self` refers to the service worker's global scope (like `window`).
  *
