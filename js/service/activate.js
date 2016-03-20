@@ -1,4 +1,5 @@
-/* 
+import { getCacheName } from './utils';
+/*
  * activate : Object -> Function
  *
  * @description
@@ -9,8 +10,11 @@
  * Note: `self` refers to the service worker's global scope (like `window`).
  *
  */
-const activate = (store) => {
+const activate = ({store, name, version}) => {
   if (!store) throw TypeError('Missing required parameter: store');
+
+  const cacheName = getCacheName(name, version);
+
   store.dispatch({type: 'ACTIVATE'});
   return (event) => {
     event.waitUntil(
