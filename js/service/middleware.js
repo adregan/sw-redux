@@ -18,9 +18,12 @@ export const reset = store => next => action => {
  */
 export const stash = store => next => action => {
   let result = next(action);
-  console.log('Stashing Data');
-  localforage.setItem('state', store.getState())
-    .catch(err => console.log(err));
+
+  if (action.type !== 'RESET') {
+    console.log('Stashing Data');
+    localforage.setItem('state', store.getState())
+      .catch(err => console.log(err));
+  }
 
   return result;
 };
