@@ -19,15 +19,25 @@ const activate = ({store, name, version}) => {
   const cacheName = getCacheName(name, version);
 
   store.dispatch({type: 'ACTIVATE'});
+
   return (event) => {
     event.waitUntil(
-      self.clients.claim()
+      self.caches.keys()
+        .then(keys => {
+          return Promise.all(keys.map(key => {
+            if (key !== cacheName) {
+              console.log(`Deleting old cache: ${key}.`);
+              return self.caches.delete(key);
+            }
+          }));
+        })
+        .then(() => self.clients.claim())
         .then(() => self.clients.matchAll())
         .then(clients => {
           return Promise.all(clients.map(c => c.postMessage(store.getState())));
         })
         .catch(err => console.error(err))
-    );  
+    );
   };
 };
 
