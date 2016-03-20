@@ -8,7 +8,7 @@ import { cache as cacheConfig } from '../config';
 const { name, version, items } = cacheConfig;
 const store = applyMiddleware(reset, stash)(createStore)(reducers);
 
-self.addEventListener('install', install({ name, version, items });
+self.addEventListener('install', install({ name, version, items }));
 self.addEventListener('activate', activate({ store, name, version }));
 
 
