@@ -2,7 +2,7 @@ import localforage from 'localforage';
 
 /*
  * @description
- * Will fire a reset action with the persisted state 
+ * Will fire a reset action with the persisted state
  */
 export const reset = store => next => action => {
   if (action.type !== 'ACTIVATE') return next(action);
@@ -10,7 +10,7 @@ export const reset = store => next => action => {
   localforage.getItem('state')
     .then(state => store.dispatch({type: 'RESET', state}))
     .catch(err => {console.log(err); return next(action);});
-}; 
+};
 
 /*
  * @desscription
