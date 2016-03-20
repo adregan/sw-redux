@@ -42,7 +42,7 @@ if ('serviceWorker' in navigator) {
     });
 
   navigator.serviceWorker.addEventListener('message', (event) => {
-    receiveMessage(event);
+    return receiveMessage(event);
   });
 }
 
