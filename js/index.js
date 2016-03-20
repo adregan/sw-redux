@@ -33,7 +33,9 @@ controls.addEventListener('click', (event) => {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service.js')
     .then((reg) => {
-      console.log('Worker is up.', reg);
+      if (reg.active) {
+        return sendMessage({type: 'ACTIVATE'});
+      }
     })
     .catch((err) => {
       console.error(err);
