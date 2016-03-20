@@ -5,6 +5,7 @@ import activate from './service/activate';
 import { reset, stash } from './service/middleware';
 import { cache as cacheConfig } from '../config';
 
+const { name, version, items } = cacheConfig;
 const store = applyMiddleware(reset, stash)(createStore)(reducers);
 
 self.addEventListener('install', install(cache));
