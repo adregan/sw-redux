@@ -16,7 +16,7 @@ const install = ({name, version, items = ['/']}) => {
   console.log('Installing service worker and configuring database. ' +
     `Name: ${name}, Version: ${version}`);
 
-  localforage.config({name, version, driver: localforage.INDEXEDDB});
+  localforage.config({name, driver: localforage.INDEXEDDB});
 
   return (event) => {
     event.waitUntil(
