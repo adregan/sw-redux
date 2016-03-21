@@ -3,6 +3,7 @@
         "name": "sw-redux",
         "version": 0,
         "items": [
+            "/",
             "/index.html",
             "/static/index.js",
             "/static/index.css"
