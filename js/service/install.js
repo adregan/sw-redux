@@ -22,6 +22,7 @@ const install = ({name, version, items = ['/']}) => {
     event.waitUntil(
       caches.open(cacheName)
         .then(cache => cache.addAll(items))
+        .then(() => self.skipWaiting())
         .catch(err => console.error(err))
     );
   };
