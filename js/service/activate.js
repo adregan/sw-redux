@@ -1,4 +1,4 @@
-import { getCacheName } from './utils';
+import { getCacheName, clearCache } from './utils';
 /*
  * activate : Object -> Function
  *

@@ -13,3 +13,20 @@ export const getCacheName = (name, version) => {
   return `${name}-v${version || 1}`;
 };
 
+/*
+ * clearCache: Array String -> Promise
+ *
+ * @description
+ * Given the list of cache name keys and the current cache name,
+ * delete all of the old caches.
+ *
+ * @param {Array} keys        The cache name keys
+ * @param {String} cacheName  The current service worker cache name
+ *
+ */
+export const clearCache = (keys, cacheName) => {
+  const oldKeys = keys.filter(key => key !== cacheName);
+  console.log(`Found ${oldKeys.length} outdated cache(s): ${oldKeys}`);
+  return Promise.all(oldKeys.map(key => self.caches.delete(key)));
+};
+
