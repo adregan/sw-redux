@@ -13,7 +13,7 @@
     "css": "sassc --style compressed scss/main.scss | postcss --use autoprefixer > dist/static/index.css",
     "prebuild": "npm run lint; npm test; npm run directories; scripts/version.js",
     "build": "npm run js; npm run sw; npm run css; npm run html",
-    "serve": "cd dist; http-server -p 7777",
+    "serve": "cd dist; http-server -p 7777 -c-1",
     "start": "npm run build; npm run serve"
   },
   "repository": {
