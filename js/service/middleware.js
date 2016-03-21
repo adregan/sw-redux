@@ -11,7 +11,7 @@ export const reset = store => next => action => {
     .then(state => {
       if (state) return store.dispatch({type: 'RESET', state});
     })
-    .catch(err => console.log(err) && next(action));
+    .catch(err => console.error(err) && next(action));
 };
 
 /*
