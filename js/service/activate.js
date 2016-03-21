@@ -23,14 +23,7 @@ const activate = ({store, name, version}) => {
   return (event) => {
     event.waitUntil(
       self.caches.keys()
-        .then(keys => {
-          return Promise.all(keys.map(key => {
-            if (key !== cacheName) {
-              console.log(`Deleting old cache: ${key}.`);
-              return self.caches.delete(key);
-            }
-          }));
-        })
+        .then(keys => clearCache(keys, cacheName))
         .then(() => self.clients.claim())
         .then(() => self.clients.matchAll())
         .then(clients => {
