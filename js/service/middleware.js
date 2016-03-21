@@ -6,7 +6,7 @@ import localforage from 'localforage';
  */
 export const reset = store => next => action => {
   if (action.type !== 'ACTIVATE') return next(action);
-  console.log('Reseting data');
+
   localforage.getItem('state')
     .then(state => {
       if (state) return store.dispatch({type: 'RESET', state});
@@ -22,7 +22,6 @@ export const stash = store => next => action => {
   let result = next(action);
 
   if (action.type !== 'RESET') {
-    console.log('Stashing Data');
     localforage.setItem('state', store.getState())
       .catch(err => console.log(err));
   }
