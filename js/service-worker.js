@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers.js';
 import install from './service/install';
 import activate from './service/activate';
-import { messageClients } from './service/utils';
+import message from './service/message';
 import { reset, stash } from './service/middleware';
 import { cache as cacheConfig } from '../config';
 
@@ -11,6 +11,7 @@ const store = applyMiddleware(reset, stash)(createStore)(reducers);
 
 self.addEventListener('install', install({ name, version, items }));
 self.addEventListener('activate', activate({ store, name, version }));
+self.addEventListener('message', message({store}));
 
 
 self.addEventListener('fetch', function(event) {
@@ -22,8 +23,4 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-self.addEventListener('message', (event) => {
-  store.dispatch(event.data);
-  messageClients(store.getState()).catch(err => console.error(err));
-});
 
