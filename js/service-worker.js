@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers.js';
 import install from './service/install';
 import activate from './service/activate';
+import { messageClients } from './service/utils';
 import { reset, stash } from './service/middleware';
 import { cache as cacheConfig } from '../config';
 
@@ -21,9 +22,8 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-
 self.addEventListener('message', (event) => {
   store.dispatch(event.data);
-  event.ports[0].postMessage(store.getState());
+  messageClients(store.getState()).catch(err => console.error(err));
 });
 

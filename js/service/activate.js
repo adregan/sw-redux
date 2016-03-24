@@ -1,4 +1,4 @@
-import { getCacheName, clearCache } from './utils';
+import { getCacheName, clearCache, messageClients } from './utils';
 /*
  * activate : Object -> Function
  *
@@ -25,10 +25,7 @@ const activate = ({store, name, version}) => {
       self.caches.keys()
         .then(keys => clearCache(keys, cacheName))
         .then(() => self.clients.claim())
-        .then(() => self.clients.matchAll())
-        .then(clients => {
-          return Promise.all(clients.map(c => c.postMessage(store.getState())));
-        })
+        .then(() => messageClients(store.getState()))
         .catch(err => console.error(err))
     );
   };
