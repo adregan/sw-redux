@@ -30,3 +30,17 @@ export const clearCache = (keys, cacheName) => {
   return Promise.all(oldKeys.map(key => self.caches.delete(key)));
 };
 
+/*
+ * messageClients : Any -> Promise
+ *
+ * @description
+ * Takes any type of argumnet (not a function) and messages all
+ * connected clients.
+ *
+ * @param {msg} Any      The message to send to a client
+ */
+export const messageClients = (msg) => {
+  return self.clients.matchAll().then(clients => {
+    return Promise.all(clients.map(client => client.postMessage(msg)));
+  });
+};
