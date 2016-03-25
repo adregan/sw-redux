@@ -15,14 +15,24 @@ self.addEventListener('activate', activate({ store, name, version }));
 self.addEventListener('message', message({store}));
 self.addEventListener('fetch', fetchEvent());
 
-
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(request => {
-        return (request) ? request : fetch(event.request);
-      })
-  );
+self.addEventListener('error', (event) => {
+  console.error('ERROR in service worker: ', event.message);
 });
 
+
+/* NOT SURE WHEN THESE GET FIRED AND WHAT TO USE THEM FOR
+ * TODO: FIGURE OUT WHAT THEY DO AND HOW TO USE THEM
+ */
+
+self.addEventListener('updatefound', (event) => {
+  console.log('UPDATE FOUND: ', event);
+});
+
+self.addEventListener('statechange', (event) => {
+  console.log('STATE CHANGED: ', event);
+});
+
+self.addEventListener('controllerchange', (event) => {
+  console.log('CONTROLLER CHANGED: ', event);
+});
 
