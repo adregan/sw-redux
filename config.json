@@ -1,4 +1,8 @@
 {
+    "manifest": {
+        "name": "Service Worker Redux",
+        "gcm_sender_id": "786207386109"
+    },
     "cache": {
         "name": "sw-redux",
         "version": 0,
