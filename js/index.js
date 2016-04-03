@@ -33,9 +33,10 @@ controls.addEventListener('click', (event) => {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service.js')
     .then((reg) => {
-      if (reg.active) {
-        return sendMessage({type: 'ACTIVATE'});
-      }
+      reg.pushManager.subscribe({userVisibleOnly: true})
+        .then(sub => console.log(sub))
+        .catch(err => console.error('Problem subscribing to push notifications: ', err))
+        .then(() => (reg.active) ? sendMessage({type: 'ACTIVATE'}) : undefined);
     })
     .catch((err) => {
       console.error(err);
