@@ -56,14 +56,14 @@ app.post('/counters', (req, res) => {
 
 app.get('/counters/:id', (req, res) => {
   Counter.findOne({where: {id: req.params.id}})
-    .then(counter => res.send({count: counter.count, id: counter.id} || {}));
+    .then(counter => res.send(counter || {}));
 });
 
 app.put('/counters/:id', (req, res) => {
   Counter.findOne({where: {id: req.params.id}})
     .then(counter => counter.update({count: req.body.count}))
     .catch(err => res.status(400).send({error: `${err.errors[0].message} on \`${err.errors[0].path}\``}))
-    .then(updated => res.send({count: updated.count, id: updated.id}));
+    .then(updated => res.send(updated));
 });
 
 app.listen(PORT);
