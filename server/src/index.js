@@ -60,8 +60,10 @@ app.get('/counters/:id', (req, res) => {
 });
 
 app.put('/counters/:id', (req, res) => {
+  const { count, pushToken } = req.body;
+
   Counter.findOne({where: {id: req.params.id}})
-    .then(counter => counter.update({count: req.body.count}))
+    .then(counter => counter.update({count, pushToken}))
     .catch(err => res.status(400).send({error: `${err.errors[0].message} on \`${err.errors[0].path}\``}))
     .then(updated => res.send(updated));
 });
