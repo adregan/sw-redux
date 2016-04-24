@@ -22,6 +22,10 @@ var Counter = sequelize.define('counter', {
     type: Sequelize.STRING,
     field: 'id',
     primaryKey: true
+  },
+  pushToken: {
+    type: Sequelize.STRING,
+    field: 'push_token'
   }
 }, {
   freezeTableName: true // Model tableName will be the same as the model name
