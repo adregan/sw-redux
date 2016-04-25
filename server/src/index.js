@@ -75,6 +75,16 @@ app.put('/counters/:id', (req, res) => {
       return counter.update({count, pushToken});
     })
     .catch(err => res.status(400).send({error: `${err.errors[0].message} on \`${err.errors[0].path}\``}))
+    .then(updated => {
+      if (!count) return updated;
+      const body = {data: {count}, to};
+      fetch('https://gcm-http.googleapis.com/gcm/send', {
+        method: 'post', headers: PUSH_HEADERS, body: JSON.stringify(body)})
+        .then(res => console.log(res))
+        .catch(err => console.error(err));
+
+      return updated;
+    })
     .then(updated => res.send(updated));
 });
 
