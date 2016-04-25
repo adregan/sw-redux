@@ -2,9 +2,15 @@ import express from 'express';
 import Sequelize from 'sequelize';
 import shortid from 'shortid';
 import bodyParser from 'body-parser';
+import fetch from 'node-fetch';
+import { apiKey } from '../config';
 
 // Constants
 const PORT = 8080;
+const PUSH_HEADERS = {
+  'Content-Type': 'application/json',
+  'Authorization': `key=${apiKey}`
+};
 
 const sequelize = new Sequelize('swredux', 'app', null, {
   dialect: 'sqlite',
