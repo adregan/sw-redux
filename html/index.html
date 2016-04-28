@@ -7,11 +7,21 @@
     <link rel="manifest" href="/static/manifest.json">
 </head>
 <body>
-    <div id="controls" class="button-container">
-      <button id="add" class="button button--add">Add</button>
-      <button id="sub" class="button button--sub">Subtract</button>
+    <div class="get-started">
+      <h2>Service Worker Redux</h2>
+      <button id="start" class="button button--start">Get Started</button>
     </div>
-    <h2 id="display" class="display"></h2>
-    <script src="/static/index.js"></script>
+    <script>
+      (function() {
+        'use strict';
+
+        document.getElementById('start').addEventListener('click', (event) => {
+          fetch('http://localhost:8080/counters', {method: 'post'})
+            .then(res => res.json())
+            .then(data => window.location = `/counter.html?counter=${data.id}`)
+            .catch(err => console.error(err));
+        });
+      })();
+    </script>
 </body>
 </html>
