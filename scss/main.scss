@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+}
 .button-container {
   background: #E8E8E8;
   margin: 0 auto;
@@ -24,7 +27,17 @@
 .button--sub {
   background: red;
 }
+.button--start {
+  background: #333;
+}
 .display {
   text-align: center;
+}
+.get-started {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
 }
 
