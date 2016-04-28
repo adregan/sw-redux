@@ -1,4 +1,5 @@
-import { INCREMENT, DECREMENT } from './actions.js';
+import { combineReducers } from 'redux';
+import { INCREMENT, DECREMENT, SET_ID } from './actions.js';
 
 const count = (state = 0, action) => {
   switch (action.type) {
@@ -13,4 +14,15 @@ const count = (state = 0, action) => {
   }
 };
 
-export default count; 
+const id = (state = '', action) => {
+  switch (action.type) {
+    case SET_ID:
+      return action.id;
+    case 'RESET':
+      return action.id;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({count, id});
