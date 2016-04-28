@@ -2,6 +2,7 @@ import express from 'express';
 import Sequelize from 'sequelize';
 import shortid from 'shortid';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import fetch from 'node-fetch';
 import { apiKey } from '../config';
 
@@ -42,6 +43,7 @@ Counter.sync();
 // APP
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json({strict: true, type: 'application/json'}));
 app.use((err, req, res, next) => {
   if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
@@ -80,7 +82,6 @@ app.put('/counters/:id', (req, res) => {
       const body = {data: {count}, to};
       fetch('https://gcm-http.googleapis.com/gcm/send', {
         method: 'post', headers: PUSH_HEADERS, body: JSON.stringify(body)})
-        .then(res => console.log(res))
         .catch(err => console.error(err));
 
       return updated;

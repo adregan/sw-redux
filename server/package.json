@@ -13,6 +13,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
     "node-fetch": "^1.5.1",
     "sequelize": "^3.21.0",
