@@ -69,24 +69,39 @@ app.get('/counters/:id', (req, res) => {
 
 app.put('/counters/:id', (req, res) => {
   const { count, pushToken } = req.body;
-  let to;
+  let tokens;
+
+  if (pushToken) {
+    return Counter.findOne({where: {id: req.params.id}})
+      .then(counter => {
+        const currentPush = counter.get('pushToken');
+        return counter.update({pushToken: `${(currentPush) ? currentPush + ',' : ''}${pushToken}`});
+      })
+      .catch(err => console.error(err))
+      .then(updated => res.send(updated));
+  }
+
+  if (!count) return res.status(400).send({error: 'Missing count.'});
 
   Counter.findOne({where: {id: req.params.id}})
     .then(counter => {
-      to = counter.get('pushToken');
-      return counter.update({count, pushToken});
+      tokens = counter.get('pushToken').split(',');
+      return counter.update({count});
     })
-    .catch(err => res.status(400).send({error: `${err.errors[0].message} on \`${err.errors[0].path}\``}))
     .then(updated => {
-      if (!count) return updated;
-      const body = {data: {count}, to};
-      fetch('https://gcm-http.googleapis.com/gcm/send', {
-        method: 'post', headers: PUSH_HEADERS, body: JSON.stringify(body)})
+      tokens.forEach(to => {
+        const body = {data: {count}, to};
+        fetch('https://gcm-http.googleapis.com/gcm/send', {
+          method: 'post', headers: PUSH_HEADERS, body: JSON.stringify(body)
+        })
+        .then(res => res.json())
         .catch(err => console.error(err));
+      });
 
-      return updated;
+      return res.send(updated);
     })
-    .then(updated => res.send(updated));
+    .catch(err => res.status(400).send({error: err}));
+
 });
 
 app.listen(PORT);
