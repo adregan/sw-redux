@@ -8,7 +8,9 @@ export const reset = store => next => action => {
   if (action.type !== 'ACTIVATE') return next(action);
 
   if (typeof action.count !== 'undefined') {
-    localforage.setItem('state', action.count).then(localforage.setItem('id', action.id));
+    localforage.setItem('state', action.count)
+      .then(localforage.setItem('id', action.id));
+
     return store.dispatch({type: 'RESET', state: action.count, id: action.id});
   }
 
@@ -37,10 +39,7 @@ export const stash = store => next => action => {
         fetch(`http://localhost:8080/counters/${id}`,
           { method: 'PUT',
             headers: { 'Content-Type' : 'application/json'},
-            body: JSON.stringify(data)})
-          .then(res => res.json())
-          .then(data => console.log(data))
-          .catch(err => {throw err;});
+            body: JSON.stringify(data)});
       })
       .catch(err => console.log(err));
   }
